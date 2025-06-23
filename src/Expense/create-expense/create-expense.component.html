@@ -1,0 +1,44 @@
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>{{ data.expense ? 'Edit' : 'Add' }} Expense</h2>
+  <mat-dialog-content>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Date</mat-label>
+      <input matInput type="date" formControlName="date" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="amount" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Payment Method</mat-label>
+      <input matInput formControlName="paymentMethod" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-checkbox formControlName="recurring">Recurring</mat-checkbox>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Tags</mat-label>
+      <input matInput formControlName="tags">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Vendor</mat-label>
+      <input matInput formControlName="vendor">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Attachment (URL)</mat-label>
+      <input matInput formControlName="attachment">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="expenseForm.invalid">
+      {{ data.expense ? 'Update' : 'Add' }}
+    </button>
+  </mat-dialog-actions>
+</form>

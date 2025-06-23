@@ -1,0 +1,38 @@
+.footer {
+  width: 100%;
+  background: #151233;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  border-top: 3px solid #fff;
+  border-left: 1px solid #151233;
+  border-right: 1px solid #151233;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+  margin: 0px;
+}
+
+/* Optional: Responsive font size */
+.footer p, .footer a {
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 0.7rem 0;
+  }
+}

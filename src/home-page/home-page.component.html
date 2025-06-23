@@ -1,0 +1,31 @@
+<div class="charts-row">
+  <div class="chart-container">
+    <h3>Monthly Spending by Category</h3>
+    <ngx-charts-pie-chart
+      [results]="pieChartData"
+      [scheme]="colorScheme"
+      [legend]="true"
+      [labels]="true"
+      [doughnut]="false"
+      [explodeSlices]="false"
+      [gradient]="false"
+      [view]="[400,300]">
+    </ngx-charts-pie-chart>
+  </div>
+
+  <div class="chart-container">
+    <h3>Yearly Spending by Month</h3>
+    <ngx-charts-bar-vertical
+      [results]="barChartData"
+      [scheme]="colorScheme"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Month'"
+      [yAxisLabel]="'Spending'"
+      [view]="[550,350]">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
