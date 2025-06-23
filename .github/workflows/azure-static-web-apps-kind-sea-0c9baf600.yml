@@ -35,7 +35,7 @@ jobs:
           action: "upload"
           app_location: "./"
           api_location: ""
-          output_location: "dist/personal-finance-tracker"
+          output_location: "dist/personal-finance-tracker/browser"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
