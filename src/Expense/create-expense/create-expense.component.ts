@@ -32,10 +32,8 @@ export class CreateExpenseComponent {
       amount: [data.expense?.amount || '', [Validators.required, Validators.min(0.01)]],
       paymentMethod: [data.expense?.paymentMethod || '', Validators.required],
       description: [data.expense?.description || ''],
-      recurring: [data.expense?.recurring || false],
-      tags: [data.expense?.tags || ''],
-      vendor: [data.expense?.vendor || ''],
-      attachment: [data.expense?.attachment || '']
+      notes: [data.expense?.notes || ''],
+      currency: [data.expense?.currency || 'INR']
     });
   }
 
