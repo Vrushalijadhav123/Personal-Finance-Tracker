@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="image-container">
+        <img class="bck-image" src="assets/login-page-img.png"/>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="userName" type="text" required>
+          <mat-error *ngIf="loginForm.get('userName')?.invalid">Valid Username is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.invalid">Password is required</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </div>
+</div>

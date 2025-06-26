@@ -1,0 +1,63 @@
+.login-container{
+    display:flex;
+    height:100vh;
+}
+
+.image-container{
+    flex:1;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Optional: add a background color for contrast */
+    background: hsla(0,0%,100%,1)
+}
+
+.bck-image {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain; /* <-- changed from cover to contain */
+    display: block;
+    background: #ffffff; /* optional: matches container background */
+}
+
+.form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .image-container,
+    .form-container {
+        flex: none;
+        width: 100%;
+        min-height: 200px;
+    }
+}
+
+form {
+    width: 100%;
+    max-width: 350px;
+    padding: 32px 24px;
+    border: 1.5px solid #bdbdbd;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #acb5df !important;
+}
+
+.mat-input-element {
+    color: #222 !important; /* or any color you prefer */
+}
