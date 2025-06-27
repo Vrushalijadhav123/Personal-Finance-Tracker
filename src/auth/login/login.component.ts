@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../../shared/shared.module';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,10 @@ export class LoginComponent {
 
 loginForm:FormGroup;
 
-constructor(private fb:FormBuilder) {
+constructor(
+  private fb:FormBuilder,
+  private authService: AuthService,
+ ) {
   this.loginForm = this.fb.group({
     userName:['',[Validators.required]],
     password:['',Validators.required]
@@ -31,6 +35,18 @@ constructor(private fb:FormBuilder) {
 }
 
 onSubmit(){
+  const username = this.loginForm.get('userName')?.value;
+const password = this.loginForm.get('password')?.value;
+this.authService.login(username,password).subscribe({
+  next: (response:any) => {
+    console.log('Login successful', response);
+    // Handle successful login, e.g., redirect to dashboard
+  },
+  error: (error:any) => {
+    console.error('Login failed', error);
+    // Handle login error, e.g., show an error message
+  }
+})
 
 }
 
