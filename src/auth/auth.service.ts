@@ -15,6 +15,6 @@ export class AuthService {
       username: username,
       password: password
     }
-   return this.http.post(`${this.apiUrl}/login`, payload);
+   return this.http.post(`${this.apiUrl}/Auth/login`, payload);
 }
 }
