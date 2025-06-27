@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://personalfinancetrackerapi-g4gegrgqardsf2d4.canadacentral-01.azurewebsites.net/api/Expenses'; // Change if hosted
+  private apiUrl = 'https://personalfinancetrackerapi-g4gegrgqardsf2d4.canadacentral-01.azurewebsites.net/api'; // Change if hosted
 
   constructor(private http:HttpClient) { }
 
