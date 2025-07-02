@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ loginForm:FormGroup;
 constructor(
   private fb:FormBuilder,
   private authService: AuthService,
+  private router: Router
  ) {
   this.loginForm = this.fb.group({
     userName:['',[Validators.required]],
@@ -40,6 +42,8 @@ const password = this.loginForm.get('password')?.value;
 this.authService.login(username,password).subscribe({
   next: (response:any) => {
     console.log('Login successful', response);
+    localStorage.setItem('token', response.token); // Assuming the response contains a token
+    this.router.navigate(['/home']); // Navigate to the dashboard or another route
     // Handle successful login, e.g., redirect to dashboard
   },
   error: (error:any) => {

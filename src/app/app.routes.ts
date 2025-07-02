@@ -4,6 +4,7 @@ import { ExpensesComponent } from '../Expense/expenses-list/expenses.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { MainlayoutComponent } from '../Layout/mainlayout/mainlayout.component';
 import { RegisterComponent } from '../auth/register/register.component';
+import { AuthGuard } from '../core/auth.guard';
 
 export const appRoutes: Routes = [
   // Auth routes (no layout)
@@ -14,11 +15,13 @@ export const appRoutes: Routes = [
   {
     path: '',
     component: MainlayoutComponent, // Create this component for your main layout
+    canActivate: [AuthGuard], // Add your auth guard here if needed
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomePageComponent },
       { path: 'expenses', component: ExpensesComponent },
       // ...other main routes
+    
     ]
   }
 ];

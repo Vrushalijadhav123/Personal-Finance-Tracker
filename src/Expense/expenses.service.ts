@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface Expense {
   id?: number;
@@ -13,8 +14,7 @@ export interface Expense {
   providedIn: 'root'
 })
 export class ExpensesService {
-  private apiUrl = 'https://personalfinancetrackerapi-g4gegrgqardsf2d4.canadacentral-01.azurewebsites.net/api/Expenses'; // Change if hosted
-
+  private apiUrl = environment.apiUrl+'/api/Expenses';
   constructor(private http: HttpClient) { }
 
   getExpenses(): Observable<Expense[]> {
